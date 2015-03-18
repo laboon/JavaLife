@@ -33,7 +33,7 @@ public class WorldTests {
 	}
 	
 	/***
-	 * A board with all dead cells should contain not X's
+	 * A board with all dead cells should contain no X's
 	 */
 	@Test
 	public void testAllDead() {
@@ -43,8 +43,8 @@ public class WorldTests {
 		assertFalse(deadWorld.toString().contains("X"));
 	}
 	
-	/***
-	 * A board with all alive cells should contain not .'s
+	/**
+	 * A board with all alive cells should contain no .'s
 	 */
 	@Test
 	public void testAllAlive() {
@@ -54,6 +54,25 @@ public class WorldTests {
 		assertFalse(livingWorld.toString().contains("."));
 	}
 
+	/**
+	 * A board with a mixture of living and dead cells should
+	 * be represented with a mixture of .'s and X's 
+	 */
+	@Test
+	public void testMixed(){
+		Cell[][] board = {
+				{alive, dead, alive},
+				{alive, dead, dead},
+				{dead, dead, dead}
+		};
+		World mixedWorld = new World(board, mock(Random.class));
+		String expectedString =   "  012\n"
+								+ "0 X.X\n"
+								+ "1 X..\n"
+								+ "2 ...\n";
+		assertEquals(mixedWorld.toString(), expectedString);
+	}
+	
 	private void fillBoard(Cell[][] board, Cell cell){
 		for (int row = 0; row < board.length; row++ ){
 			for (int col = 0; col < board.length; col++){
