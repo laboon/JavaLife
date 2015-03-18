@@ -28,7 +28,11 @@ public class WorldTests {
 	 */
 	@Test
 	public void testNGreaterThanTen(){
-		World bigWorld = new World(15, 42, 50);
+		//Any arbitrary world will do as long as it is large enough. 
+		//This test is only for the indices.
+		int SOME_SEED = 42;
+		int SOME_PERCENT = 50;
+		World bigWorld = new World(15, SOME_SEED, SOME_PERCENT);
 		assertTrue(bigWorld.toString().contains("012345678901234"));
 	}
 	
@@ -71,6 +75,18 @@ public class WorldTests {
 								+ "1 X..\n"
 								+ "2 ...\n";
 		assertEquals(mixedWorld.toString(), expectedString);
+	}
+	
+	/**
+	 * A 1x1 game board should have an accurate string representation
+	 */
+	@Test
+	public void testTiny(){
+		Cell[][] board = {{alive}};
+		World tinyWorld = new World(board, mock(Random.class));
+		String expectedString =   "  0\n"
+								+ "0 X\n";
+		assertEquals(tinyWorld.toString(), expectedString);
 	}
 	
 	private void fillBoard(Cell[][] board, Cell cell){
