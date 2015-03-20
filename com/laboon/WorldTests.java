@@ -13,6 +13,9 @@ public class WorldTests {
 	Cell dead;
 	Cell alive;
 	
+	/**
+	 * Mock out living and dead cells for our boards.
+	 */
 	@Before
 	public void setUp() throws Exception {
 		alive = mock(Cell.class);
@@ -23,7 +26,7 @@ public class WorldTests {
 
 	/***
 	 * For boards with more than 10 columns,
-	 * the string representation should only index by single digit numbers
+	 * the string representation should only index by single digit numbers.
 	 * (So after 9, indices should loop back to 0)
 	 */
 	@Test
@@ -37,7 +40,7 @@ public class WorldTests {
 	}
 	
 	/***
-	 * A board with all dead cells should contain no X's
+	 * A board with all dead cells should contain no X's.
 	 */
 	@Test
 	public void testAllDead() {
@@ -48,7 +51,7 @@ public class WorldTests {
 	}
 	
 	/**
-	 * A board with all alive cells should contain no .'s
+	 * A board with all alive cells should contain no .'s.
 	 */
 	@Test
 	public void testAllAlive() {
@@ -60,7 +63,7 @@ public class WorldTests {
 
 	/**
 	 * A board with a mixture of living and dead cells should
-	 * be represented with a mixture of .'s and X's 
+	 * be represented with a mixture of .'s and X's.
 	 */
 	@Test
 	public void testMixed(){
@@ -78,7 +81,7 @@ public class WorldTests {
 	}
 	
 	/**
-	 * A 1x1 game board should have an accurate string representation
+	 * A 1x1 game board should have an accurate string representation.
 	 */
 	@Test
 	public void testTiny(){
@@ -95,10 +98,5 @@ public class WorldTests {
 				board[row][col] = cell;
 			}
 		}
-	}
-	
-	@After
-	public void tearDown(){
-		
 	}
 }
