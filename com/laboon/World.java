@@ -1,4 +1,7 @@
-package com.laboon;
+//Code refactored by Mike Byrne
+//	mjb187@pitt.edu
+
+//package com.laboon;
 
 import java.util.Random;
 
@@ -22,6 +25,9 @@ public class World {
 	
 	Random _rng;
 	
+	//string representation of the World
+	String _str;
+	
 	/**
 	 * Initial world constructor.
 	 * @param size Size of world
@@ -41,10 +47,11 @@ public class World {
 	 * @param rng Random number generator
 	 */
 	
-	public World(Cell[][] cells, Random rng) {
+	public World(Cell[][] cells, Random rng, String str) {
 		_size = cells.length;
 		_rng = rng;
 		_world = cells;
+		_str = str;
 	}
 	
 	/**
@@ -96,17 +103,31 @@ public class World {
 	
 	/**
 	 * Go through one iteration of this World and return new World.
+	 * Build String representation as the World is built.
 	 * @return New world
 	 */
 	
 	public World iterate() {
 		Cell[][] newCells = new Cell[_size][_size];
+		
+		StringBuilder temp = (new StringBuilder()).append("  ");
+		for (int j= 0; j < _size; j++) {
+			temp.append(String.valueOf(j % 10));
+		}
+		temp.append("\n");
+		
 		for (int j = 0; j < _size; j++ ) {
+			temp.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
 				newCells[j][k] = new Cell(_world[j][k].iterate(getNumNeighbors(_world, j, k)), j, k);
+				temp.append((newCells[j][k].getStateRep()));
 			}
+			temp.append("\n");
 		}
-		return new World(newCells, _rng);
+		
+		//System.out.println(temp);
+		_str = temp.toString();
+		return new World(newCells, _rng, _str);
 	}
 
 	/**
@@ -115,23 +136,11 @@ public class World {
 	 */
 	
 	public String toString() {
-		String toReturn = "  ";
-		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
-		}
-		toReturn += "\n";
-		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
-			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
-			}
-			toReturn += "\n";
-		}
-		return toReturn;
+		return _str;
 	}
 	
 	/**
-	 * Generate initial game board.
+	 * Generate initial game board and its string representation.
 	 * @param size Size of board
 	 * @param percent Percent alive
 	 * @return Initial world
@@ -139,11 +148,24 @@ public class World {
 	
 	private Cell[][] generateBoard(int size, int percent) {
 		Cell[][] world = new Cell[size][size];
+		
+		StringBuilder temp = (new StringBuilder()).append("  ");
+		for (int j= 0; j < _size; j++) {
+			temp.append(String.valueOf(j % 10));
+		}
+		temp.append("\n");
+		
 		for (int j = 0; j < size; j++ ) {
+			temp.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < size; k++) {
 				world[j][k] = new Cell(generateInitialState(percent), j, k);
+				temp.append((world[j][k].getStateRep()));
 			}
+			temp.append("\n");
 		}
+		
+		//System.out.println(temp);
+		_str = temp.toString();
 		return world;
 	}
 	
