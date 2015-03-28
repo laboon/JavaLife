@@ -11,8 +11,7 @@ import org.junit.Test;
 //	for example, the fullWorld test: I assume a full world is properly generated and then test that the
 //	toString() method properly displays it (n*n Xs). It would not make sense to test percentages less
 //	than zero or greater than 100 because the World object should handle that kind of input and never
-//	get to the toString() method (though it doesn't look like your code checks for this or negative
-//	dimensions anywhere in the World object).
+//	get to the toString() method (though it doesn't look like your code checks for percentages >100).
 
 public class WorldTest {
 	
