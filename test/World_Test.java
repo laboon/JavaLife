@@ -68,7 +68,7 @@ public class World_Test
     @Test
     public void test_toString_CompareVersions_Size_250()
     {
-        World w = new World(250, 13, 65);
+        World w = new World(250, SEED, PERCENT);
         assertEquals(w.toString_OLD(), w.toString());
     }
 
