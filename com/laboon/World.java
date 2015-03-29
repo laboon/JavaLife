@@ -1,5 +1,6 @@
 package com.laboon;
 
+
 import java.util.Random;
 
 public class World {
@@ -98,8 +99,8 @@ public class World {
 	 * Go through one iteration of this World and return new World.
 	 * @return New world
 	 */
-	
-	public World iterate() {
+	// I think this is the problem method
+	public World _iterate() {
 		Cell[][] newCells = new Cell[_size][_size];
 		for (int j = 0; j < _size; j++ ) {
 			for (int k = 0; k < _size; k++) {
@@ -108,13 +109,43 @@ public class World {
 		}
 		return new World(newCells, _rng);
 	}
-
+	public World iterate() {
+		for (int j = 0; j < _size; j++ ) {
+			for (int k = 0; k < _size; k++) {
+				_world[j][k] = new Cell(_world[j][k].iterate(getNumNeighbors(_world, j, k)), j, k);
+			}
+		}
+		return new World(_world, _rng);
+	}
+	
 	/**
+	 * New version of toString.
 	 * Convert this World to a string for display.
 	 * @return String representation of world
 	 */
-	
 	public String toString() {
+		StringBuilder toReturn = new StringBuilder("  ");
+		for (int j = 0; j < _size; j++) {
+			toReturn.append(j % 10);
+		}
+		toReturn.append('\n');
+		for (int j = 0; j < _size; j++ ) {
+			toReturn.append(j % 10);
+			toReturn.append(' ');
+				for (int k = 0; k < _size; k++) {
+					toReturn.append(_world[j][k].getStateRep());
+				}
+				toReturn.append('\n');
+		}
+		return toReturn.toString();
+	}
+	
+	/**
+	 * Old version of toString.  It has been left here for reference.
+	 * Convert this World to a string for display.
+	 * @return String representation of world
+	 */
+	public String __toString() {
 		String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
 			toReturn += String.valueOf(j % 10);
