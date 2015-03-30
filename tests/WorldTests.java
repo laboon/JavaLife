@@ -67,16 +67,16 @@ public class WorldTests {
 	@Test
 	public void testToString_singleIteration() {
 		String expectedWorld = "  0123456789\n" +
-				"0 ..X.X...XX\n" +
-				"1 .X......X.\n" +
-				"2 ..XXXX.X..\n" +
-				"3 .....X.X.X\n" +
-				"4 ...X.X...X\n" +
-				"5 ..X..X...X\n" +
-				"6 X.XX.XX..X\n" +
-				"7 XX.X.X.X..\n" +
-				"8 X.X..X.X.X\n" +
-				"9 X.X.XXX...\n";
+				"0 ..X....XXX\n" +
+				"1 .......XXX\n" +
+				"2 ..XX..XXX.\n" +
+				"3 XX..XXXX..\n" +
+				"4 XX........\n" +
+				"5 .XXX..XX..\n" +
+				"6 XX.X.X...X\n" +
+				"7 X.....X...\n" +
+				"8 ...X.XXXXX\n" +
+				"9 ....XXX...\n";
 		World testWorld = new World(10, 0xDEADBEEF, 30);
 		testWorld = testWorld.iterate();
 		String observedWorld = testWorld.toString();

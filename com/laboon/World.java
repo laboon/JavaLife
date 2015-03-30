@@ -99,8 +99,7 @@ public class World {
 	 * Go through one iteration of this World and return new World.
 	 * @return New world
 	 */
-	// I think this is the problem method
-	public World _iterate() {
+	public World iterate() {
 		Cell[][] newCells = new Cell[_size][_size];
 		for (int j = 0; j < _size; j++ ) {
 			for (int k = 0; k < _size; k++) {
@@ -108,14 +107,6 @@ public class World {
 			}
 		}
 		return new World(newCells, _rng);
-	}
-	public World iterate() {
-		for (int j = 0; j < _size; j++ ) {
-			for (int k = 0; k < _size; k++) {
-				_world[j][k] = new Cell(_world[j][k].iterate(getNumNeighbors(_world, j, k)), j, k);
-			}
-		}
-		return new World(_world, _rng);
 	}
 	
 	/**
