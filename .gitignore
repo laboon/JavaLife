@@ -1,2 +1,6 @@
 # Compiled java files
 *.class
+
+# Things added by eclipse, when I was writing unit tests.
+.classpath
+.project
