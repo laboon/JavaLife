@@ -41,7 +41,7 @@ public class WorldTest {
 	 * one, for the label line.
 	 */
 	@Test
-	public void testWorldSize() {
+	public void testWorldStringSize() {
 		int worldSize = 15;
 		World world = new World(worldSize, 10, 10);
 		
@@ -54,5 +54,21 @@ public class WorldTest {
 			assertEquals("Incorrect line length in world string.", 
 				worldSize + 2, line.length());
 		}
+	}
+	
+	/*
+	 * Tests that there are a correct amount of spaces in the world.
+	 */
+	@Test
+	public void testWorldSpacesAmount() {
+		int worldSize = 20;
+		World world = new World(worldSize, 5, 70);
+		String worldString = world.toString();
+		int count = 0;
+		for(char cur: worldString.toCharArray()) {
+			if(cur == 'X' | cur == '.') count++;
+		}
+		assertEquals("Incorrect amount of spaces in the world.",
+				count, Math.pow(worldSize, 2), 0);
 	}
 }
