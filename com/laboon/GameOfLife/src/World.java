@@ -1,5 +1,3 @@
-package com.laboon;
-
 import java.util.Random;
 
 public class World {

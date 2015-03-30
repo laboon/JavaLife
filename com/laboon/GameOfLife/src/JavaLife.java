@@ -1,5 +1,3 @@
-package com.laboon;
-
 public class JavaLife {
 
 	/**
