@@ -1,5 +1,3 @@
-package com.laboon;
-
 public class JavaLife {
 
 	/**
@@ -11,6 +9,8 @@ public class JavaLife {
 	 */
 	
 	public JavaLife(int size, int seed, int percent, int maxIterations) {
+		
+		long startTime = System.nanoTime();
 		World w = new World(size, seed, percent);
 		System.out.println("Initial Configuration:");
 		System.out.println(w.toString());
@@ -20,6 +20,10 @@ public class JavaLife {
 			System.out.println(w.toString());
 		}
 		
+		long endTime = System.nanoTime();
+		long totalTime = endTime-startTime;
+		
+		System.out.println("Total time to execute " + maxIterations + " iterations: " + totalTime/1000000000.0 + " seconds");
 	}
 	
 	/**
