@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 public class WorldTest {
 
 	
-	// Test to the initial world
+	// Test the initial world seeded at 10
 	@Test
 	public void testInitialWorld() {
 		
@@ -21,9 +21,18 @@ public class WorldTest {
 		assertEquals(" 01234\n0 X...X\n1 ....X\n2 X..X.\n3 ....X\n4 .X.XX\n", stringifiedWorld);
 	}
 	
+	// CORNER CASE: tests a world that has a negative size
+	// exception should be NegativeArraySizeException thrown 
+	@Test(expected=NegativeArraySizeException.class)
+	public void testNegativeWorld() {
+		
+		World negativeWorld = new World(-1, 10, 50);
+		String stringifiedNegWorld = negativeWorld.toString();
+		
+	}
 	
-	// test to make sure the Cell is filled with X's to 
-	// create a world that is alive and well
+	// EDGE CASE: tests to make sure the Cell is filled  
+	// with X's to create a world that is alive and well
 	@Test
 	public void testAliveWorld() {
 		
@@ -45,8 +54,8 @@ public class WorldTest {
 	}
 	
 	@Test
-	// test to make sure the world is filled with .'s to 
-	// to create a dead world
+	// EDGE CASE: tests to make sure the world is filled 
+	// with .'s to to create a dead world
 	public void testDeadWorld() {
 		
 		Cell dead = mock(Cell.class);
