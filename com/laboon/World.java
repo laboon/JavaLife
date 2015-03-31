@@ -1,6 +1,7 @@
 package com.laboon;
 
 import java.util.Random;
+import java.lang.StringBuilder;
 
 public class World {
 
@@ -115,19 +116,24 @@ public class World {
 	 */
 	
 	public String toString() {
-		String toReturn = "  ";
+		//I have refactored the toString method to use the StringBulder class instead of just regular strings because
+		//Strings aren't mutable so every time you change a string you have to create a new on and that with many iterations
+		//took considerable CPU time. By changing this to StringBuilder it has cut down the share of processing time this function
+		//was taking up from 97% to just over 3%
+		
+		StringBuilder toReturn = new StringBuilder("  ");
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			toReturn.append(String.valueOf(j % 10));
 		}
-		toReturn += "\n";
+		toReturn.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+			toReturn.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+				toReturn.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			toReturn.append("\n");
 		}
-		return toReturn;
+		return toReturn.toString();
 	}
 	
 	/**
