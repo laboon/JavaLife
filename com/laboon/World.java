@@ -68,6 +68,7 @@ public class World {
 	 * @return
 	 */
 	
+	
 	private int getNumNeighbors(Cell[][] world, int x, int y) {
 		int size = world.length;
 		int leftX = (x - 1) % size;
@@ -94,6 +95,34 @@ public class World {
 		return numNeighbors;
 	}
 	
+
+	private int getNumNeighbors(int x, int y) {
+		int size = _world.length;
+		int leftX = (x - 1) % size;
+		int rightX = (x + 1) % size;
+		int upY = (y - 1) % size;
+		int downY = (y + 1) % size;
+		
+		if (leftX == -1) { leftX = size - 1; }
+		if (rightX == -1) { rightX = size - 1; }
+		if (upY == -1) { upY = size - 1; }
+		if (downY == -1) { downY = size - 1; }
+		
+		int numNeighbors = 0;
+
+		if (_world[leftX][upY].isAlive())    { numNeighbors++; }
+		if (_world[leftX][downY].isAlive())  { numNeighbors++; }
+		if (_world[leftX][y].isAlive())      { numNeighbors++; }
+		if (_world[rightX][upY].isAlive())   { numNeighbors++; }
+		if (_world[rightX][downY].isAlive()) { numNeighbors++; }
+		if (_world[rightX][y].isAlive())     { numNeighbors++; }
+		if (_world[x][upY].isAlive())        { numNeighbors++; }
+		if (_world[x][downY].isAlive())      { numNeighbors++; }
+
+		return numNeighbors;
+	}
+	
+
 	/**
 	 * Go through one iteration of this World and return new World.
 	 * @return New world
@@ -114,7 +143,8 @@ public class World {
 	 * @return String representation of world
 	 */
 	
-	public String toString() {
+        //Oringal Method
+	public String toStringOriginal() {
 		String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
 			toReturn += String.valueOf(j % 10);
@@ -129,7 +159,28 @@ public class World {
 		}
 		return toReturn;
 	}
-	
+        
+        @Override
+        //Modified Method
+	public String toString() 
+        {
+            StringBuilder map = new StringBuilder("  ");
+            for (int j= 0; j < _size; j++) 
+            {
+                map.append(j % 10);
+            }
+		map.append("\n");
+		for (int j = 0; j < _size; j++ ) 
+                {
+                    map.append(j % 10).append(" ");
+                    for (int k = 0; k < _size; k++) 
+                    {
+                        map.append(_world[j][k].getStateRep());
+                    }
+                    map.append("\n");
+		}
+            return map.toString();
+	}        
 	/**
 	 * Generate initial game board.
 	 * @param size Size of board
