@@ -113,7 +113,7 @@ public class World {
 	 * Convert this World to a string for display.
 	 * @return String representation of world
 	 */
-	
+	/* OLD METHOD:
 	public String toString() {
 		String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
@@ -128,6 +128,33 @@ public class World {
 			toReturn += "\n";
 		}
 		return toReturn;
+	}
+	
+	*/
+	/*
+	 * Optimized method. Replaced string with StringBuilder and all concatenation 
+	 * with append.
+	 */
+	public String toString() {
+		StringBuilder toReturn=new StringBuilder();
+		toReturn.append("  ");
+		for (int j= 0; j < _size; j++) {
+			toReturn.append(String.valueOf(j % 10));
+		}
+		
+	
+		toReturn.append("\n");
+		for (int j = 0; j < _size; j++ ) {
+			toReturn.append(String.valueOf(j % 10) + " ");
+			for (int k = 0; k < _size; k++) {
+		
+				toReturn.append(_world[j][k].getStateRep());
+			}
+	
+			toReturn.append("\n");
+		}
+	
+		return toReturn.toString();
 	}
 	
 	/**
