@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class World {
 
+	static int[] dx = {-1,-1,-1, 0, 0, 1, 1, 1};
+	static int[] dy = {-1, 0, 1,-1, 1,-1, 0, 1};
+
 	/**
 	 * Size of the world
 	 */
@@ -68,28 +71,41 @@ public class World {
 	 * @return
 	 */
 	
-	private int getNumNeighbors(Cell[][] world, int x, int y) {
-		int size = world.length;
-		int leftX = (x - 1) % size;
-		int rightX = (x + 1) % size;
-		int upY = (y - 1) % size;
-		int downY = (y + 1) % size;
-		
-		if (leftX == -1) { leftX = size - 1; }
-		if (rightX == -1) { rightX = size - 1; }
-		if (upY == -1) { upY = size - 1; }
-		if (downY == -1) { downY = size - 1; }
-		
+	public int getNumNeighbors(Cell[][] world, int x, int y) {
 		int numNeighbors = 0;
 
-		if (world[leftX][upY].isAlive())    { numNeighbors++; }
-		if (world[leftX][downY].isAlive())  { numNeighbors++; }
-		if (world[leftX][y].isAlive())      { numNeighbors++; }
-		if (world[rightX][upY].isAlive())   { numNeighbors++; }
-		if (world[rightX][downY].isAlive()) { numNeighbors++; }
-		if (world[rightX][y].isAlive())     { numNeighbors++; }
-		if (world[x][upY].isAlive())        { numNeighbors++; }
-		if (world[x][downY].isAlive())      { numNeighbors++; }
+		if (x != 0 && y != 0 && x != _size-1 && y != _size-1) {
+			//anywhere in the middle of the world
+			for (int i=0; i<dx.length; i++)
+				if (world[x+dx[i]][y+dy[i]].isAlive())
+					numNeighbors++;
+		} else if( x == 0 && y != 0) {
+			if (world[x][y+1].isAlive()) { numNeighbors++; }
+			if (world[x][y-1].isAlive()) { numNeighbors++; }
+			if (world[x+1][y].isAlive()) { numNeighbors++; }
+		} else if (y == 0 && x != 0) {
+			if (world[x][y+1].isAlive()) { numNeighbors++; }
+			if (world[x-1][y].isAlive()) { numNeighbors++; }
+			if (world[x+1][y].isAlive()) { numNeighbors++; }
+		} else if (x == 0 && y == 0) {
+			//top left corner
+			if (world[0][1].isAlive()) { numNeighbors++; }
+			if (world[1][1].isAlive()) { numNeighbors++; }
+			if (world[1][0].isAlive()) { numNeighbors++; }
+		} else if (x == _size-1 && y != _size-1) {
+			if (world[x-1][y].isAlive()) { numNeighbors++; }
+			if (world[x+1][y].isAlive()) { numNeighbors++; }
+			if (world[x][y+1].isAlive()) { numNeighbors++; }			
+		} else if (y == _size-1 && x != _size-1) {
+			if (world[x-1][y].isAlive()) { numNeighbors++; }
+			if (world[x][y+1].isAlive()) { numNeighbors++; }
+			if (world[x][y-1].isAlive()) { numNeighbors++; }		
+		} else if (x == _size-1 && y == _size-1) {
+			//bottom right corner
+			if (world[_size-1][_size-2].isAlive()) { numNeighbors++; }
+			if (world[_size-2][_size-2].isAlive()) { numNeighbors++; }
+			if (world[_size-2][_size-1].isAlive()) { numNeighbors++; }			
+		}
 
 		return numNeighbors;
 	}
