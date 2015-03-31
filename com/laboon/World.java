@@ -111,25 +111,60 @@ public class World {
 
 	/**
 	 * Convert this World to a string for display.
+     * New and Improved Version -> Uses a StringBuilder w/ .append() to create the String
 	 * @return String representation of world
+     *
+     * THIS METHOD HAS BEEN UPDATED FOR BETTER PERFORMANCE
+     *
+     * NOTE: This Method's Bracket Formatting may be off in GitHub
+     *
 	 */
 	
-	public String toString() {
-		String toReturn = "  ";
-		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+	public String toString()
+    {
+		StringBuilder toReturn = new StringBuilder("  ");
+		for (int j = 0; j < _size; j++)
+        {
+			toReturn.append(j % 10);
 		}
-		toReturn += "\n";
-		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
-			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+		toReturn.append("\n");
+		for (int j = 0; j < _size; j++ )
+        {
+			toReturn.append(j % 10).append(" ");
+			for (int k = 0; k < _size; k++)
+            {
+				toReturn.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			toReturn.append("\n");
 		}
-		return toReturn;
+		return toReturn.toString();
 	}
-	
+
+    /**
+     * Convert this World to a string for display.
+     * OLD VERSION -> USED TO COMPARE AGAINST THE NEW VERSION
+     * @return String representation of world
+     *
+     * THE METHOD IS THE OLD VERSION -> TESTING PURPOSES ONLY
+     *
+     */
+
+    public String toString_OLD() {
+        String toReturn = "  ";
+        for (int j= 0; j < _size; j++) {
+            toReturn += String.valueOf(j % 10);
+        }
+        toReturn += "\n";
+        for (int j = 0; j < _size; j++ ) {
+            toReturn += String.valueOf(j % 10) + " ";
+            for (int k = 0; k < _size; k++) {
+                toReturn += (_world[j][k].getStateRep());
+            }
+            toReturn += "\n";
+        }
+        return toReturn;
+    }
+
 	/**
 	 * Generate initial game board.
 	 * @param size Size of board
