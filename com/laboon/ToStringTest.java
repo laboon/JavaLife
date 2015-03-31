@@ -4,7 +4,7 @@ import org.junit.*;
 public class ToStringTest {
 	
 	// Tests that in a 10 * 10 world of 30 percent aliveness,
-	// 10 rows of cells with 10 cells in each row should be printed out	
+	// 10 rows of cells with 10 cells in each row will be printed out
 	@Test
 	public void test_interior_value() 
 	{		
@@ -24,7 +24,7 @@ public class ToStringTest {
 	}
 	
 	// Tests that in a 6*6 world of 0 percent aliveness, 
-	// each cell should be printed out as "."
+	// each cell will be printed out as "."
 	@Test
 	public void test_zero_percent() 
 	{
@@ -34,7 +34,7 @@ public class ToStringTest {
 	}
 	
 	// Tests that in a 8*8 world of 100 percent aliveness, 
-	// each cell should be printed out as "X"
+	// each cell will be printed out as "X"
 	@Test
 	public void test_full_percent() 
 	{
