@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 public class WorldTest {
 
 	
-	// Test the initial world seeded at 10
+	// Test to the initial world
 	@Test
 	public void testInitialWorld() {
 		
@@ -118,5 +118,18 @@ public class WorldTest {
 		
 		assertEquals(cellSize*(cellSize-1), aliveCount);
 		assertEquals(cellSize, deadCount);
+	}
+	
+	// test that the initial world is not equal to itself 
+	// after iterate is called on it
+	@Test
+	public void testWorldAfterIntilize() {
+		
+		World world = new World(10, 10, 10);
+		String beforeWorld = world.toString();
+		
+		String afterWorld = world.iterate().toString();
+		
+		assertNotEquals(beforeWorld, afterWorld);
 	}
 }
