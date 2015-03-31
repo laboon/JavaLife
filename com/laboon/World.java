@@ -2,6 +2,18 @@ package com.laboon;
 
 import java.util.Random;
 
+/*
+ * Modification Log:
+ *  + 3-30-2015 : Ryan McDonald
+ *      Refactored toString() method to use StringBuilder while
+ *      building the gameboard as a string since using the "+="
+ *      with Strings is inefficent in Java as they are immutable
+ *      so this would continually create new Strings. Also, we 
+ *      can avoid the String.valueOf() method call alltogether.
+ *       
+ */
+
+
 public class World {
 
 	/**
@@ -115,19 +127,21 @@ public class World {
 	 */
 	
 	public String toString() {
-		String toReturn = "  ";
+		StringBuilder toReturn = new StringBuilder("  ");
+		
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			toReturn.append(j % 10);
 		}
-		toReturn += "\n";
+		toReturn.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+		    toReturn.append(j % 10);
+		    toReturn.append(" ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+			    toReturn.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			toReturn.append("\n");
 		}
-		return toReturn;
+		return toReturn.toString();
 	}
 	
 	/**
