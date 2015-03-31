@@ -116,6 +116,8 @@ public class World {
      *
      * THIS METHOD HAS BEEN UPDATED FOR BETTER PERFORMANCE
      *
+     * NOTE: This Method's Bracket Formatting may be off in GitHub
+     *
 	 */
 	
 	public String toString()
