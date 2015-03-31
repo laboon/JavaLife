@@ -1,5 +1,6 @@
 package com.laboon;
 
+
 public class JavaLife {
 
 	/**
@@ -71,6 +72,11 @@ public class JavaLife {
 			System.exit(1);
 		}
 		JavaLife jl = new JavaLife(size, seed, percent, maxIterations);
+        /*try{
+            Thread.sleep(200000);
+        }catch(InterruptedException e){
+
+        }*/
 	}
 
 }
