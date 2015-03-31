@@ -115,7 +115,7 @@ public class World {
 	 */
 	
 	public String toString() {
-		String toReturn = "  ";
+		/*String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
 			toReturn += String.valueOf(j % 10);
 		}
@@ -127,7 +127,22 @@ public class World {
 			}
 			toReturn += "\n";
 		}
-		return toReturn;
+		return toReturn;// this code is bad, and you should feel bad */
+
+        StringBuilder sb = new StringBuilder("  ");
+        for(int j=0; j<_size; j++){
+            sb.append(j % 10);
+        }
+        sb.append("\n");
+        for(int j=0; j<_size; j++){
+            sb.append(j%10).append(" ");
+            for(int k=0; k<_size; k++){
+                sb.append(_world[j][k].getStateRep());
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+
 	}
 	
 	/**
