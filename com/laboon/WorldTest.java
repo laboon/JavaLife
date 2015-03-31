@@ -123,7 +123,7 @@ public class WorldTest {
 	// test that the initial world is not equal to itself 
 	// after iterate is called on it
 	@Test
-	public void testWorldAfterIntilize() {
+	public void testWorldAfterIterate() {
 		
 		World world = new World(10, 10, 10);
 		String beforeWorld = world.toString();
