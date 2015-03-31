@@ -1,0 +1,157 @@
+package com.laboon;
+
+import static org.junit.Assert.*;
+
+import java.util.Random;
+
+import org.junit.*;
+
+public class WorldToStringTest {
+
+	/*
+	 * verify that row and column numbers wrap from 0 to 9 
+	 */
+	@Test
+	public void testRowColumnNums() {
+		
+		//initialize 25x25 dead cells
+		Cell[][] c = new Cell[15][15];
+		
+		for(int i = 0; i < c.length; i++)
+		{
+	  	for(int j = 0; j < c.length; j++)
+			{
+				c[i][j] = new Cell(State.DEAD, i, j);
+			}
+		}
+		
+		//create world with cells
+		World w = new World(c, new Random());
+		
+		//expected string
+		String exp = "  012345678901234\n"
+				+ "0 ...............\n"
+				+ "1 ...............\n"
+				+ "2 ...............\n"
+				+ "3 ...............\n"
+				+ "4 ...............\n"
+				+ "5 ...............\n"
+				+ "6 ...............\n"
+				+ "7 ...............\n"
+				+ "8 ...............\n"
+				+ "9 ...............\n"
+				+ "0 ...............\n"
+				+ "1 ...............\n"
+				+ "2 ...............\n"
+				+ "3 ...............\n"
+				+ "4 ...............\n";
+		
+		assertEquals(exp, w.toString());
+	}
+	
+	/*
+	 * verify dead cells are displayed correctly
+	 */	
+	@Test
+	public void testDeadCells()
+	{
+		
+		//create 2x2 of dead cells
+		Cell[][] c = new Cell[2][2];
+		
+		for(int i = 0; i < c.length; i++)
+		{
+			for(int j = 0; j < c.length; j++)
+			{
+				c[i][j] = new Cell(State.DEAD, i, j);
+			}
+		}
+		
+		//create world with dead cells
+		World w = new World(c, new Random());
+		
+		//expected string
+		String exp = "  01\n0 ..\n1 ..\n";
+		
+		assertEquals(exp,w.toString());
+	}
+
+	/*
+	 * verify alive cells are displayed correctly
+	 */	
+	@Test
+	public void testAliveCells()
+	{
+		
+		//create 2x2 of alive cells
+		Cell[][] c = new Cell[2][2];
+		
+		for(int i = 0; i < c.length; i++)
+		{
+			for(int j = 0; j < c.length; j++)
+			{
+				c[i][j] = new Cell(State.ALIVE, i, j);
+			}
+		}
+		
+		//create world with dead cells
+		World w = new World(c, new Random());
+		
+		//expected string
+		String exp = "  01\n0 XX\n1 XX\n";
+		
+		assertEquals(exp,w.toString());
+	}
+	
+	/*
+	 * verify empty world is displayed correctly
+	 */
+	@Test
+	public void testEmptyWorld()
+	{
+		//create empty world
+		Cell[][] c = new Cell[0][0];
+		
+		World w = new World(c, new Random());
+		
+		//expected string
+		String exp = "  \n";
+		
+		assertEquals(exp, w.toString());
+	}
+	
+	/*
+	 * verify mixed world is displayed in correct order
+	 */
+	@Test
+	public void testMixedWorld()
+	{
+		//create mixed world (alternating states)
+		Cell[][] c = new Cell[4][4];
+		
+		for(int i = 0; i < c.length; i++)
+		{
+			for(int j = 0; j < c.length; j++)
+			{
+				if((j+i) % 2 == 0)
+				{
+					c[i][j] = new Cell(State.DEAD, i, j);
+				}
+				else
+				{
+					c[i][j] = new Cell(State.ALIVE, i, j);
+				}
+			}
+		}
+		
+		World w = new World(c, new Random());
+		
+		//expected string
+		String exp = "  0123\n0 .X.X\n1 X.X.\n2 .X.X\n3 X.X.\n";
+		
+		assertEquals(exp, w.toString());
+				
+				
+	}
+
+}
