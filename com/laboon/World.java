@@ -115,6 +115,25 @@ public class World {
 	 */
 	
 	public String toString() {
+		
+	//refactored algorithm uses stringbuilder to speed up concatenation
+	StringBuilder toReturn = new StringBuilder();
+	toReturn.append(" ");
+	for (int j= 0; j < _size; j++) {
+		toReturn.append(String.valueOf(j % 10));
+	}
+	toReturn.append("\n");
+	for (int j = 0; j < _size; j++ ) {
+		toReturn.append(String.valueOf(j % 10) + " ");
+		for (int k = 0; k < _size; k++) {
+			toReturn.append((_world[j][k].getStateRep()));
+		}
+		toReturn.append("\n");
+	}
+	return toReturn.toString();
+	
+	
+	/*  Original algorithm
 		String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
 			toReturn += String.valueOf(j % 10);
@@ -128,6 +147,8 @@ public class World {
 			toReturn += "\n";
 		}
 		return toReturn;
+		*/
+	
 	}
 	
 	/**
