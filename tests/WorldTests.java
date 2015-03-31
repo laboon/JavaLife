@@ -82,4 +82,29 @@ public class WorldTests {
 		String observedWorld = testWorld.toString();
 		assertEquals(observedWorld, expectedWorld);
 	}
+	
+	/* Tests a world that initially has all cells alive*/
+	@Test
+	public void testToString_fullWorld() {
+		String expectedWorld = "  012\n" +
+				"0 XXX\n" +
+				"1 XXX\n" +
+				"2 XXX\n";
+		World testWorld = new World(3, 0xDEADBEEF, 100);
+		String observedWorld = testWorld.toString();
+		assertEquals(observedWorld, expectedWorld);
+	}
+	
+	/* Tests a world that initially has all cells dead */
+	@Test
+	public void testToString_emptyWorld() {
+		String expectedWorld = "  012\n" +
+				"0 ...\n" +
+				"1 ...\n" +
+				"2 ...\n";
+		World testWorld = new World(3, 0xDEADBEEF, 0);
+		String observedWorld = testWorld.toString();
+
+		assertEquals(observedWorld, expectedWorld);
+	}
 }
