@@ -117,11 +117,11 @@ public class World {
 	public String toString() {
 		StringBuilder toReturn = new StringBuilder("  ");
 		for (int j= 0; j < _size; j++) {
-			toReturn.append(String.valueOf(j % 10));
+			toReturn.append(j % 10);
 		}
 		toReturn.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn.append(String.valueOf(j % 10) + " ");
+			toReturn.append((j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
 				toReturn.append((_world[j][k].getStateRep()));
 			}
