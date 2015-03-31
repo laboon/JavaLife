@@ -113,6 +113,9 @@ public class World {
 	 * Convert this World to a string for display.
      * New and Improved Version -> Uses a StringBuilder w/ .append() to create the String
 	 * @return String representation of world
+     *
+     * THIS METHOD HAS BEEN UPDATED FOR BETTER PERFORMANCE
+     *
 	 */
 	
 	public String toString()
@@ -139,6 +142,9 @@ public class World {
      * Convert this World to a string for display.
      * OLD VERSION -> USED TO COMPARE AGAINST THE NEW VERSION
      * @return String representation of world
+     *
+     * THE METHOD IS THE OLD VERSION -> TESTING PURPOSES ONLY
+     *
      */
 
     public String toString_OLD() {
