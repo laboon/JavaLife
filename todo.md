@@ -4,15 +4,17 @@
 - [x] Main page has title, name of project, and name
 - [ ] Summary
     - [x] Introduction
-    - [ ] Description of how you profiled and discovered the method
-    - [ ] Description of how you re-factored the method
-    - [ ] Description of how you chose what to test
-    - [ ] Description of issues faced during this process
-- [ ] MINIMUM 3 Unit Tests
-    - [ ] Test string output is same (multiple times)
-    - [ ] Test string output is different with seeds
-    - [ ] Test that 0% has no x's
-    - [ ] Test that 100% has no .'s
+    - [x] Description of how you profiled and discovered the method
+    - [x] Description of how you re-factored the method
+    - [x] Description of how you chose what to test
+    - [x] Description of issues faced during this process
+- [x] MINIMUM 3 Unit Tests
+    - [x] Test string output for 25x25
+    - [x] Test string output for 50x50
+    - [x] Test string output for 100x100
+    - [x] Test string output is different with unique seeds
+    - [x] Test that 0% has no x's on output before and after
+    - [x] Test that 100% has no .'s on output before and after
 - [x] Screenshot of VisualVM CPU Profile (before)
-- [ ] Screenshot of VisualVM CPU Profile (after)
-- [ ] PR Issued
+- [x] Screenshot of VisualVM CPU Profile (after)
+- [x] PR Issued

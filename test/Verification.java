@@ -1,5 +1,3 @@
-package com.laboon;
-
 import static org.junit.Assert.*;
 import org.junit.*;
 import static org.mockito.Mockito.*;

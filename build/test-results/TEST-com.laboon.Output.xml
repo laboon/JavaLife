@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.laboon.Output" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-03-31T23:05:52" hostname="mimir" time="0.031">
+  <properties/>
+  <testcase name="same25" classname="com.laboon.Output" time="0.007"/>
+  <testcase name="same50" classname="com.laboon.Output" time="0.004"/>
+  <testcase name="same100" classname="com.laboon.Output" time="0.013"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

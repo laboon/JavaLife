@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Verification" tests="2" skipped="1" failures="0" errors="0" timestamp="2015-03-31T23:50:08" hostname="mimir" time="0.002">
+  <properties/>
+  <testcase name="failTest" classname="Verification" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="passTest" classname="Verification" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
