@@ -42,7 +42,7 @@ public class WorldTest {
 	 */
 	@Test
 	public void testWorldStringSize() {
-		int worldSize = 15;
+		int worldSize = 50;
 		World world = new World(worldSize, 10, 10);
 		
 		String worldString = world.toString();
@@ -70,5 +70,31 @@ public class WorldTest {
 		}
 		assertEquals("Incorrect amount of spaces in the world.",
 				count, Math.pow(worldSize, 2), 0);
+	}
+	
+	/*
+	 * Tests that the string representation of the board has the
+	 * correct amount of living cells.
+	 */
+	@Test
+	public void testAmountAliveInString() {
+		World world = new World(50, 5, 50);
+		String worldString = world.toString();
+		int worldCount = 0;
+		for(int i=0; i<world._world.length; i++) {
+			for(int j=0; j<world._world[i].length; j++) {
+				if(world._world[i][j].isAlive()) worldCount++;
+			}
+		}
+		
+		int strCount = 0;
+		for(char c: worldString.toCharArray()) {
+			if(c == 'X') strCount++;
+		}
+		
+		assertTrue("Too many living cells in String.", 
+				strCount <= worldCount);
+		assertTrue("Not enough living cells in String.",
+				strCount >= worldCount);
 	}
 }
