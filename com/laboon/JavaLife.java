@@ -70,6 +70,7 @@ public class JavaLife {
 			System.err.println(getNumFormatMessage());
 			System.exit(1);
 		}
+		try{Thread.sleep(10000);}catch(Exception e){}
 		JavaLife jl = new JavaLife(size, seed, percent, maxIterations);
 	}
 

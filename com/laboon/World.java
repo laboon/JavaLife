@@ -114,22 +114,40 @@ public class World {
 	 * @return String representation of world
 	 */
 	
-	public String toString() {
-		String toReturn = "  ";
-		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
-		}
-		toReturn += "\n";
-		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
-			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
-			}
-			toReturn += "\n";
-		}
-		return toReturn;
-	}
+	//This is the original version
+	 /*public String toString() {
+		 String toReturn = "  ";
+		 for (int j= 0; j < _size; j++) {
+			 toReturn += String.valueOf(j % 10);
+		 }
+		 toReturn += "\n";
+		 for (int j = 0; j < _size; j++ ) {
+			 toReturn += String.valueOf(j % 10) + " ";
+			 for (int k = 0; k < _size; k++) {
+				 toReturn += (_world[j][k].getStateRep());
+			 }
+			 toReturn += "\n";
+		 }
+		 return toReturn;
+	 }*/
 	
+	//This is the refactored version.
+	//Using a Stringbuilder to append instead of the += speeds up the method considerably.
+	public String toString() {
+		 StringBuilder s=new StringBuilder("  ");
+		 for (int j= 0; j < _size; j++) {
+			 s.append(String.valueOf(j % 10));
+		 }
+		 s.append("\n");
+		 for (int j = 0; j < _size; j++ ) {
+			 s.append((j % 10)+" ");
+			 for (int k = 0; k < _size; k++) {
+				 s.append(_world[j][k].getStateRep());
+			 }
+			 s.append("\n");
+		 }
+		 return s.toString();
+	}
 	/**
 	 * Generate initial game board.
 	 * @param size Size of board
