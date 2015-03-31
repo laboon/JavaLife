@@ -115,7 +115,7 @@ public class World {
    */
 
   public String toString() {
-    StringBuilder toReturn = new StringBuilder();
+    StringBuilder toReturn = new StringBuilder("  ");
     for (int j= 0; j < _size; j++) {
       toReturn.append(j % 10);
     }
