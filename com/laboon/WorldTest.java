@@ -32,7 +32,7 @@ public class WorldTest {
 	}
 	
 	@Test
-	public void testtest() {
+	public void testsmall2() {
 		World w = new World(1, 0, 100);
 		assertEquals(w.toString(),"  0\n0 X\n");	
 	}
