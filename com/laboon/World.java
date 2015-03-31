@@ -114,20 +114,21 @@ public class World {
 	 * @return String representation of world
 	 */
 	
-	public String toString() {
-		String toReturn = "  ";
+	public String toString() {            
+		StringBuilder toReturn = new StringBuilder("  ");
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			toReturn.append(String.valueOf(j%10));
 		}
-		toReturn += "\n";
+		toReturn.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+			toReturn.append(String.valueOf(j%10));
+                        toReturn.append(" ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+				toReturn.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			toReturn.append("\n");
 		}
-		return toReturn;
+		return toReturn.toString();
 	}
 	
 	/**
