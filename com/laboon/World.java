@@ -1,5 +1,6 @@
 package com.laboon;
 
+
 import java.util.Random;
 
 public class World {
@@ -98,7 +99,6 @@ public class World {
 	 * Go through one iteration of this World and return new World.
 	 * @return New world
 	 */
-	
 	public World iterate() {
 		Cell[][] newCells = new Cell[_size][_size];
 		for (int j = 0; j < _size; j++ ) {
@@ -108,13 +108,35 @@ public class World {
 		}
 		return new World(newCells, _rng);
 	}
-
+	
 	/**
+	 * New version of toString.
 	 * Convert this World to a string for display.
 	 * @return String representation of world
 	 */
-	
 	public String toString() {
+		StringBuilder toReturn = new StringBuilder("  ");
+		for (int j = 0; j < _size; j++) {
+			toReturn.append(j % 10);
+		}
+		toReturn.append('\n');
+		for (int j = 0; j < _size; j++ ) {
+			toReturn.append(j % 10);
+			toReturn.append(' ');
+				for (int k = 0; k < _size; k++) {
+					toReturn.append(_world[j][k].getStateRep());
+				}
+				toReturn.append('\n');
+		}
+		return toReturn.toString();
+	}
+	
+	/**
+	 * Old version of toString.  It has been left here for reference.
+	 * Convert this World to a string for display.
+	 * @return String representation of world
+	 */
+	public String __toString() {
 		String toReturn = "  ";
 		for (int j= 0; j < _size; j++) {
 			toReturn += String.valueOf(j % 10);

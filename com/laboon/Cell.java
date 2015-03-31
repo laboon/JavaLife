@@ -1,5 +1,6 @@
 package com.laboon;
 
+
 public class Cell {
 
 	private State _state = State.DEAD;
