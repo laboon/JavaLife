@@ -1,6 +1,35 @@
-# JavaLife
-A (deliberately inefficient) version of Conway's Game of Life
+# Deliverable 4
 
-If you have never played with the Game of Life, you are in for a treat!  See http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+Jeff Warner
 
-There is a (deliberately) hidden inefficient method in this repo, which it is your job to find and refactor using VisualVM.
+### Run the Tests
+
+- Gradle is capable of running out-of-the-box here via:
+
+```bash
+gradle test
+```
+
+- Should this fail, you may also have success by running:
+
+```bash
+./gradlew test
+```
+
+### View the Test Results
+
+The results of our tests as XMLs are at:
+`/build/test-results/*.xml`
+
+The results of our tests as an HTML is at:
+`/build/reports/tests/index.html`
+
+### View source files
+
+Unfortunately due to the project structure of Gradle, you can find your source files refactored under:
+`/src/main/java`
+
+### View other files
+
+Anything else should be attached to the print-out or in the PDF. This and all other files can be found at:
+`/misc`

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Seeding" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-03-31T23:50:08" hostname="mimir" time="0.045">
+  <properties/>
+  <testcase name="seed50" classname="Seeding" time="0.008"/>
+  <testcase name="seed100_2" classname="Seeding" time="0.012"/>
+  <testcase name="seed25_2" classname="Seeding" time="0.002"/>
+  <testcase name="seed50_2" classname="Seeding" time="0.004"/>
+  <testcase name="seed100" classname="Seeding" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

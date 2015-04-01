@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Output" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-03-31T23:50:08" hostname="mimir" time="0.018">
+  <properties/>
+  <testcase name="same25" classname="Output" time="0.002"/>
+  <testcase name="same50" classname="Output" time="0.004"/>
+  <testcase name="same100" classname="Output" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
