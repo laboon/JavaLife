@@ -2,7 +2,7 @@
 
 - [x] Project README on how to run tests
 - [x] Main page has title, name of project, and name
-- [ ] Summary
+- [x] Summary
     - [x] Introduction
     - [x] Description of how you profiled and discovered the method
     - [x] Description of how you re-factored the method
