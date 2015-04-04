@@ -158,7 +158,7 @@ public class toStringTests {
     	assertEquals(match, str);
     }
     
-    //generate an empty world, then iterate it once, and make sure the string returned by toString matches the expected output
+    //generate a world, then iterate it once, and make sure the string returned by toString matches the expected output
     //this ensures that the toString method correctly captures the representation of the world after it has changed
     @Test
     public void iterateWorldToStringTest() {
