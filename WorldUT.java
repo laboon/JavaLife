@@ -104,17 +104,17 @@ public class WorldUT {
 	public void test_iterate_world_size_ten() 
 	{				
 		World myWorld = new World(10, 5, 30);	
-		String expectedWorld = "  0123456789\n" + 
-									"0 .X....X..X\n" + 
-									"1 .XX...XX..\n" + 
-									"2 XXX..X.X..\n" + 
-									"3 ...XX....X\n" + 
-									"4 .XX..X....\n" + 
-									"5 XXX.X.....\n" + 
-									"6 X.XXX...XX\n" + 
-									"7 ........X.\n" + 
-									"8 ..XX...X..\n" + 
-									"9 ..X...XXX.\n";
+		String expectedWorld = 				
+			"  0123456789\n" + 
+			"0 .X....X..X\n" + 
+			"1 .XX...XX..\n" + 
+			"3 ...XX....X\n" + 
+			"4 .XX..X....\n" + 
+			"5 XXX.X.....\n" + 
+			"6 X.XXX...XX\n" + 
+			"7 ........X.\n" + 
+			"8 ..XX...X..\n" + 
+			"9 ..X...XXX.\n";
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 	
@@ -134,11 +134,12 @@ public class WorldUT {
 	public void test_iterate_world_full_percent() 
 	{				
 		World myWorld = new World(4, 1, 100);	
-		String expectedWorld = "  0123\n" + 
-				   "0 ....\n" +
-				   "1 ....\n" +
-				   "2 ....\n" +
-				   "3 ....\n";
+		String expectedWorld = 
+				"  0123\n" + 
+				"0 ....\n" +
+				"1 ....\n" +
+				"2 ....\n" +
+				"3 ....\n";
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 	
