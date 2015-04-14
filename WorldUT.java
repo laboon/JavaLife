@@ -1,7 +1,5 @@
 import org.junit.*;
-import java.util.Random;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class WorldUT {
 	
@@ -12,7 +10,7 @@ public class WorldUT {
 	// Tests that in a 10 * 10 world of 30 percent aliveness,
 	// 10 rows of cells with 10 cells in each row will be printed out
 	@Test
-	public void test_interior_value() 
+	public void test_toString_interior_value() 
 	{		
 		World myWorld = new World(10, 5, 30);
 		String expectedValue = "  0123456789\n" + 
@@ -32,7 +30,7 @@ public class WorldUT {
 	// Tests that in a 1*1 world of 20 percent aliveness,
 	// only one cell will be printed out
 	@Test
-	public void test_world_size_one() 
+	public void test_toString_world_size_one() 
 	{
 		World myWorld = new World(1, 7, 20);
 		String expectedValue = "  0\n" + 
@@ -43,7 +41,7 @@ public class WorldUT {
 	// Tests that in a 6*6 world of 0 percent aliveness, 
 	// each cell will be printed out as "."
 	@Test
-	public void test_zero_percent() 
+	public void test_toString_zero_percent() 
 	{
 		World myWorld = new World(6, 9, 0);
 		String expectedValue = "  012345\n" + 
@@ -59,7 +57,7 @@ public class WorldUT {
 	// Tests that in a 8*8 world of 100 percent aliveness, 
 	// each cell will be printed out as "X"
 	@Test
-	public void test_full_percent() 
+	public void test_toString_full_percent() 
 	{
 		World myWorld = new World(8, 11, 100);
 		String expectedValue = "  01234567\n" + 
@@ -77,7 +75,7 @@ public class WorldUT {
 	// Tests that in a 0*0 world of 10 percent aliveness, 
 	// an empty string will be printed out
 	@Test
-	public void test_world_size_zero() 
+	public void tes_toString_world_size_zero() 
 	{
 		World myWorld = new World(0, 19, 10);
 		String expectedValue = "  \n";
@@ -88,7 +86,7 @@ public class WorldUT {
 	// for the aliveness percentage  will result in an 
 	// invalid World and so print out a null string
 	@Test
-	public void test_world_negative_percent() 
+	public void test_toString_negative_percent() 
 	{
 		World myWorld = new World(0, 4, -17);
 		String expectedValue = null;
@@ -100,10 +98,10 @@ public class WorldUT {
 	// ITERATE TESTS //
 	///////////////////
 	
-	// Tests that after iterating a 5*5 world of 30 percent 
+	// Tests that after iterating a 10*10 world of 30 percent 
 	// aliveness, the new world coming out matches the expected world
 	@Test
-	public void test_iterate_1() 
+	public void test_iterate_world_size_ten() 
 	{				
 		World myWorld = new World(10, 5, 30);	
 		String expectedWorld = "  0123456789\n" + 
@@ -118,20 +116,41 @@ public class WorldUT {
 							   "8 ..XX...X..\n" + 
 							   "9 ..X...XXX.\n";
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
-//		Cell room = mock(Cell.class);
-//		Cell[][] newCells = new Cell[3][3];
-//		newCells[0][0] = new Cell(State.DEAD, 0,0); 
-//		newCells[0][1] = new Cell(State.DEAD, 0,1); 
-//		newCells[0][2] = new Cell(State.DEAD, 0,2); 
-//		newCells[1][0] = new Cell(State.ALIVE, 1,0); 
-//		newCells[1][1] = new Cell(State.ALIVE, 1,1); 
-//		newCells[1][2] = new Cell(State.ALIVE, 1,2); 
-//		newCells[2][0] = new Cell(State.DEAD,2,0); 
-//		newCells[2][1] = new Cell(State.DEAD, 2,1); 
-//		newCells[2][2] = new Cell(State.ALIVE, 2,2); 
-//		Random rnd = new Random(5);
-//		World expectedWorld = new World(newCells, rnd);	
-//		World myWorld = new World(3, 5, 30);
-//		assertEquals(expectedWorld.iterate(), myWorld.iterate());
+	}
+	
+	// Tests that after iterating a 0*0 world of 40 percent 
+	// aliveness, the new world coming out matches the expected world
+	@Test
+	public void test_iterate_world_size_zero() 
+	{				
+		World myWorld = new World(0, 99, 40);	
+		String expectedWorld = "  \n";			
+		assertEquals(expectedWorld, myWorld.iterate().toString());	
+	}
+	
+	// Tests that after iterating a 4*4 world of 100 percent 
+	// aliveness, the new world coming out matches the expected world
+	@Test
+	public void test_iterate_world_full_percent() 
+	{				
+		World myWorld = new World(4, 1, 100);	
+		String expectedWorld = "  0123\n" + 
+				   			   "0 ....\n" +
+				   			   "1 ....\n" +
+				   			   "2 ....\n" +
+				   			   "3 ....\n";
+		assertEquals(expectedWorld, myWorld.iterate().toString());	
+	}
+	
+	// Tests that after iterating a 2*2 world of 0 percent 
+	// aliveness, the new world coming out matches the expected world
+	@Test
+	public void test_iterate_world_zero_percent() 
+	{				
+		World myWorld = new World(2, 71, 0);	
+		String expectedWorld = "  01\n" + 
+				   			   "0 ..\n" +
+				   			   "1 ..\n";					  
+		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 }
