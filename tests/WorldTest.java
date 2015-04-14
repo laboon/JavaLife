@@ -9,7 +9,6 @@ public class WorldTest
     @Test
     public void testToString() throws Exception
     {
-
         World   testWorld_1 = new World(5, 1, 10),
                 testWorld_2 = new World(5, 2, 10),
                 testWorld_3 = new World(0, 1, 10),
