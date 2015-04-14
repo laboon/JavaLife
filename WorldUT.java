@@ -34,9 +34,9 @@ public class WorldUT {
 	public void test_toString_world_size_one() 
 	{
 		World myWorld = new World(1, 7, 20);
-		String expectedValue = 
-					"  0\n" + 
-					"0 .\n";
+		String expectedValue =
+				   "  0\n" +
+						   "0 .\n";
 		assertEquals(expectedValue, myWorld.toString());
 	}
 	
@@ -47,13 +47,13 @@ public class WorldUT {
 	{
 		World myWorld = new World(6, 9, 0);
 		String expectedValue = 
-			   "  012345\n" + 
-			   "0 ......\n" +
-			   "1 ......\n" +
-			   "2 ......\n" +
-			   "3 ......\n" +
-			   "4 ......\n" +
-			   "5 ......\n";
+				   "  012345\n" + 
+						   "0 ......\n" +
+						   "1 ......\n" +
+						   "2 ......\n" +
+						   "3 ......\n" +
+						   "4 ......\n" +
+						   "5 ......\n";
 		assertEquals(expectedValue, myWorld.toString());		
 	}
 	
@@ -64,15 +64,15 @@ public class WorldUT {
 	{
 		World myWorld = new World(8, 11, 100);
 		String expectedValue = 
-			 "  01234567\n" + 
-			 "0 XXXXXXXX\n" + 
-			 "1 XXXXXXXX\n" + 
-			 "2 XXXXXXXX\n" + 
-			 "3 XXXXXXXX\n" + 
-			 "4 XXXXXXXX\n" + 
-			 "5 XXXXXXXX\n" + 
-			 "6 XXXXXXXX\n" + 
-			 "7 XXXXXXXX\n";		
+				   "  01234567\n" + 
+						   "0 XXXXXXXX\n" + 
+						   "1 XXXXXXXX\n" + 
+						   "2 XXXXXXXX\n" + 
+						   "3 XXXXXXXX\n" + 
+						   "4 XXXXXXXX\n" + 
+						   "5 XXXXXXXX\n" + 
+						   "6 XXXXXXXX\n" + 
+						   "7 XXXXXXXX\n";		
 		assertEquals(expectedValue, myWorld.toString());		
 	}
 	
@@ -109,16 +109,16 @@ public class WorldUT {
 	{				
 		World myWorld = new World(10, 5, 30);	
 		String expectedWorld = 				
-		   "  0123456789\n" + 
-		   "0 .X....X..X\n" + 
-		   "1 .XX...XX..\n" + 
-		   "3 ...XX....X\n" + 
-		   "4 .XX..X....\n" + 
-		   "5 XXX.X.....\n" + 
-		   "6 X.XXX...XX\n" + 
-		   "7 ........X.\n" + 
-		   "8 ..XX...X..\n" + 
-		   "9 ..X...XXX.\n";
+				   "  0123456789\n" + 
+						   "0 .X....X..X\n" + 
+						   "1 .XX...XX..\n" + 
+						   "3 ...XX....X\n" + 
+						   "4 .XX..X....\n" + 
+						   "5 XXX.X.....\n" + 
+						   "6 X.XXX...XX\n" + 
+						   "7 ........X.\n" + 
+						   "8 ..XX...X..\n" + 
+						   "9 ..X...XXX.\n";
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 	
@@ -139,11 +139,11 @@ public class WorldUT {
 	{				
 		World myWorld = new World(4, 1, 100);	
 		String expectedWorld = 
-				 "  0123\n" + 
-				 "0 ....\n" +
-				 "1 ....\n" +
-				 "2 ....\n" +
-				 "3 ....\n";
+				   "  0123\n" + 
+						   "0 ....\n" +
+						   "1 ....\n" +
+						   "2 ....\n" +
+						   "3 ....\n";
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 	
@@ -155,8 +155,8 @@ public class WorldUT {
 		World myWorld = new World(2, 71, 0);	
 		String expectedWorld = 
 				   "  01\n" + 
-				   "0 ..\n" +
-				   "1 ..\n";					  
+						   "0 ..\n" +
+						   "1 ..\n";					  
 		assertEquals(expectedWorld, myWorld.iterate().toString());	
 	}
 }
