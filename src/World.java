@@ -1,4 +1,4 @@
-package com.laboon;
+
 
 import java.util.Random;
 
@@ -113,21 +113,25 @@ public class World {
 	 * Convert this World to a string for display.
 	 * @return String representation of world
 	 */
-	
-	public String toString() {
-		String toReturn = "  ";
-		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("  ");
+		for (int i = 0; i < _size; i++)
+			sb.append(i % 10);
+		sb.append("\n");
+
+		for (int x = 0; x < _size; x++)
+		{
+			sb.append(x % 10).append(" ");
+			for (int y = 0; y < _size; y++)
+				sb.append(_world[x][y].getStateRep());
+			sb.append("\n");
 		}
-		toReturn += "\n";
-		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
-			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
-			}
-			toReturn += "\n";
-		}
-		return toReturn;
+
+		return sb.toString();
 	}
 	
 	/**
