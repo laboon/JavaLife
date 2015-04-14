@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
  */
 public class WorldTest
 {
-
     @Test
     public void testIterate() throws Exception
     {

@@ -134,22 +134,6 @@ public class World {
 		return sb.toString();
 	}
 	
-/*	public String toString() {
-		String toReturn = "  ";
-		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
-		}
-		toReturn += "\n";
-		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
-			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
-			}
-			toReturn += "\n";
-		}
-		return toReturn;
-	}*/
-	
 	/**
 	 * Generate initial game board.
 	 * @param size Size of board
