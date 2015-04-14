@@ -14,6 +14,7 @@ public class CellUT {
 		Cell cell = new Cell(State.ALIVE, 0, 0);
 		assertEquals(State.ALIVE, cell.state());
 	}
+	
 	// Tests that state() will return DEAD 
 	// if the current state of the cell is DEAD
 	@Test
@@ -22,10 +23,19 @@ public class CellUT {
 		assertEquals(State.DEAD, cell.state());
 	}
 	
+	// Tests that state() will return null
+	// if xLoc and yLoc are equal to negative
+	// integers (invalid)
+	@Test
+	public void testStateNegative() {
+		Cell cell = new Cell(State.DEAD, -12, -77);
+		assertEquals(null, cell.state());
+	}
+	
 	
 	///////////////////
 	// ISALIVE TESTS //
-	///////////////////	
+	///////////////////
 	
 	// Tests that isAlive() will return true 
 	// if the current state of the cell is ALIVE
@@ -157,12 +167,12 @@ public class CellUT {
 	}
 	
 	// Tests that iterate(int numNeighbors) will 
-	// return null if numNeighbors is 15 (invalid) 
+	// return null if numNeighbors is 12 (invalid) 
 	// and the current state of the cell is DEAD
 	@Test
-	public void testIterate_Dead_15_nb() {
+	public void testIterate_Dead_12_nb() {
 		Cell cell = new Cell(State.DEAD, 5, 5);
-		assertEquals(null, cell.iterate(15));		
+		assertEquals(null, cell.iterate(12));		
 	}
 	
 	// Tests that iterate(int numNeighbors) will 
@@ -193,8 +203,8 @@ public class CellUT {
 	// of the cell is ALIVE
 	@Test
 	public void testGetStateRep_Dead() {
-		Cell cell = new Cell(State.DEAD, 5, 5);
-		assertEquals('.', cell.getStateRep());	
+		Cell cell = new Cell(State.ALIVE, 10, 10);
+		assertEquals('X', cell.getStateRep());	
 	}
 	
 	// Tests that getStateRep() will return
@@ -202,7 +212,7 @@ public class CellUT {
 	// of the cell is null
 	@Test
 	public void testGetStateRep_Null() {
-		Cell cell = new Cell(null, 5, 5);
+		Cell cell = new Cell(null, 15, 15);
 		assertEquals('?', cell.getStateRep());		
 	}	
 }

@@ -32,7 +32,7 @@ public class WorldUT {
 	// Tests that in a 1*1 world of 20 percent aliveness,
 	// only one cell will be printed out
 	@Test
-	public void test_edge_size() 
+	public void test_world_size_one() 
 	{
 		World myWorld = new World(1, 7, 20);
 		String expectedValue = "  0\n" + 
