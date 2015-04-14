@@ -1,4 +1,4 @@
-package com.laboon;
+
 
 public class Cell {
 
@@ -34,7 +34,7 @@ public class Cell {
 	 * Any live cell with two or three live neighbors lives on to the next generation.
      * Any live cell with more than three live neighbors dies, as if by overcrowding.
      * Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
-	 * @param int numNeighbors - the current number of neighbors 
+	 * @param numNeighbors - the current number of neighbors
 	 * @return State - the new state of the cell (alive or dead)
 	 */
 	
