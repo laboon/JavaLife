@@ -14,16 +14,16 @@ public class WorldUT {
 	{		
 		World myWorld = new World(10, 5, 30);
 		String expectedValue = "  0123456789\n" + 
-				"0 ...XXX..XX\n" + 
-				"1 .X..X..XXX\n" + 
-				"2 X.X..X..XX\n" + 
-				"3 ...XX.....\n" +
-				"4 ..........\n" +
-				"5 XXX.XX.X..\n" +
-				"6 ..XX.....X\n" +
-				"7 ........X.\n" +
-				"8 .......X..\n" +
-				"9 .XXXX.X...\n";
+					"0 ...XXX..XX\n" + 
+					"1 .X..X..XXX\n" + 
+					"2 X.X..X..XX\n" + 
+					"3 ...XX.....\n" +
+					"4 ..........\n" +
+					"5 XXX.XX.X..\n" +
+					"6 ..XX.....X\n" +
+					"7 ........X.\n" +
+					"8 .......X..\n" +
+					"9 .XXXX.X...\n";
 		assertEquals(expectedValue, myWorld.toString());		
 	}
 	
