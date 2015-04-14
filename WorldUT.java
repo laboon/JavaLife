@@ -34,8 +34,9 @@ public class WorldUT {
 	public void test_toString_world_size_one() 
 	{
 		World myWorld = new World(1, 7, 20);
-		String expectedValue = "  0\n" + 
-				   "0 .\n";
+		String expectedValue = 
+					"  0\n" + 
+					"0 .\n";
 		assertEquals(expectedValue, myWorld.toString());
 	}
 	
