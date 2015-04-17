@@ -1,6 +1,5 @@
-package com.laboon;
-
 import java.util.Random;
+import java.lang.StringBuffer;
 
 public class World {
 
@@ -114,20 +113,22 @@ public class World {
 	 * @return String representation of world
 	 */
 	
-	public String toString() {
-		String toReturn = "  ";
+	public String toString() {		
+		StringBuffer sBuffer = new StringBuffer("  ");	    
+	       
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			sBuffer.append(String.valueOf(j % 10));
 		}
-		toReturn += "\n";
+		sBuffer.append("\n");
+		
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+			sBuffer.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+				sBuffer.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			sBuffer.append("\n");
 		}
-		return toReturn;
+		return sBuffer.toString();
 	}
 	
 	/**
@@ -145,6 +146,5 @@ public class World {
 			}
 		}
 		return world;
-	}
-	
+	}	
 }
