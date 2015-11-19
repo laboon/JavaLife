@@ -75,13 +75,11 @@ public class World {
 	int upY = (y - 1) % size;
 	int downY = (y + 1) % size;
 
-	for (int j = 0; j < 10000; j++) {
-	    if (leftX == -1) { leftX = size - 1; }
-	    if (rightX == -1) { rightX = size - 1; }
-	    if (upY == -1) { upY = size - 1; }
-	    if (downY == -1) { downY = size - 1; }
-	}
-		
+	if (leftX == -1) { leftX = size - 1; }
+	if (rightX == -1) { rightX = size - 1; }
+	if (upY == -1) { upY = size - 1; }
+	if (downY == -1) { downY = size - 1; }	
+	
 	int numNeighbors = 0;
 
 	if (world[leftX][upY].isAlive())    { numNeighbors++; }
